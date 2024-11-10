@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { Nav } from "@/components/Nav";
 import Header from "@/components/Header"; // Header'ı import ediyoruz
 import { cn } from "@/utils";
 
@@ -26,7 +25,6 @@ export default function RootLayout({
         )}
       >
         <Header /> {/* Header'ı Nav'dan önce ekliyoruz */}
-        <Nav />
         {children}
       </body>
     </html>
