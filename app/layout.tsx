@@ -1,31 +1,22 @@
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import "./globals.css";
-import { Nav } from "@/components/Nav";
-import { cn } from "@/utils";
+import '../styles/globals.css'; // Mevcut stil dosyasını koruyoruz
+import Header from '../components/Header'; // Header bileşenini içe aktarıyoruz
+import { ReactNode } from 'react';
 
-export const metadata: Metadata = {
-  title: "Hume AI - EVI - Next.js Starter",
-  description: "A Next.js starter using Hume AI's Empathic Voice Interface",
+type LayoutProps = {
+  children: ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          GeistSans.variable,
-          GeistMono.variable,
-          "flex flex-col min-h-screen"
-        )}
-      >
-        <Nav />
-        {children}
+      <body>
+        {/* Header bileşenini ekliyoruz */}
+        <Header />
+        
+        {/* Ana içerik alanı */}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
